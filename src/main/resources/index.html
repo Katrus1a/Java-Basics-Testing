@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Sequence Analyzer</title>
+</head>
+<body>
+<h1>Character Sequence Analyzer</h1>
+
+<label for="input-text">Enter Text:</label>
+<input type="text" id="input-text">
+
+<button id="submit">Analyze</button>
+
+<h2>Results:</h2>
+<p>Max Unequal Characters: <span id="result-unequal">-</span></p>
+<p>Max Consecutive Letters: <span id="result-letters">-</span></p>
+<p>Max Consecutive Digits: <span id="result-digits">-</span></p>
+
+<script>
+    document.getElementById("submit").addEventListener("click", function() {
+        let input = document.getElementById("input-text").value;
+        document.getElementById("result-unequal").innerText = countMaxUnequal(input);
+        document.getElementById("result-letters").innerText = countMaxConsecutiveLetters(input);
+        document.getElementById("result-digits").innerText = countMaxConsecutiveDigits(input);
+    });
+
+    function countMaxUnequal(str) {
+        let maxLen = 0, currentSet = new Set();
+        for (let char of str) {
+            if (currentSet.has(char)) {
+                maxLen = Math.max(maxLen, currentSet.size);
+                currentSet.clear();
+            }
+            currentSet.add(char);
+        }
+        return Math.max(maxLen, currentSet.size);
+    }
+
+    function countMaxConsecutiveLetters(str) {
+        return countMaxConsecutive(str, /[a-zA-Z]/);
+    }
+
+    function countMaxConsecutiveDigits(str) {
+        return countMaxConsecutive(str, /[0-9]/);
+    }
+
+    function countMaxConsecutive(str, regex) {
+        let maxLen = 0, currentLen = 0, prevChar = "";
+        for (let char of str) {
+            if (regex.test(char)) {
+                if (char === prevChar) {
+                    currentLen++;
+                } else {
+                    currentLen = 1;
+                }
+                maxLen = Math.max(maxLen, currentLen);
+            }
+            prevChar = char;
+        }
+        return maxLen;
+    }
+</script>
+</body>
+</html>
