@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.pastebin.tests.PastebinTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 9.638 s <<< FAILURE! -- in com.pastebin.tests.PastebinTest
+com.pastebin.tests.PastebinTest.testCreatePaste -- Time elapsed: 9.622 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Page title does not match ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+	at com.pastebin.tests.PastebinTest.testCreatePaste(PastebinTest.java:64)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
