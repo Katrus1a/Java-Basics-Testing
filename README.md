@@ -16,6 +16,4 @@ It includes basic Java exercises as well as my first steps in automated testing 
 - Understand the basics of automated web testing with Selenium.
 - Practice working with Git and branching.
 
----
-
  This repository will be updated with new exercises and projects.
